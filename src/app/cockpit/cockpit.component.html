@@ -9,7 +9,12 @@
         #serverNameInput
          >
         <label>Server content</label>
-        <input type="text" class="form-control" [(ngModel)]="serverContent">
+        <!--<input type="text" class="form-control" [(ngModel)]="serverContent">-->
+        <input 
+            type="text" 
+            class="form-control" 
+            #serverContentInput
+            >
         <br>
         <button 
             class="btn btn-primary" 
