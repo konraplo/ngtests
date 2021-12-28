@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, OnChanges, SimpleChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy, ViewChild, ElementRef } from '@angular/core';
+import { Component, Input, OnInit, OnChanges, SimpleChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy, ViewChild, ElementRef, ContentChild } from '@angular/core';
 
 @Component({
   selector: 'app-server-element',
@@ -16,6 +16,7 @@ export class ServerElementComponent implements OnInit,
   @Input('srvElement') element: {type:string, name:string, content:string};
   @Input() name: string;
   @ViewChild('Heading', {static: true}) header: ElementRef;
+  @ContentChild('contentParagraph', {static: true})  paragraph: ElementRef;
 
   constructor() { 
     console.log('constructor called');
@@ -40,6 +41,7 @@ export class ServerElementComponent implements OnInit,
 
   ngAfterContentInit(): void {
     console.log('ngAfterContentInit called');
+    console.log('Text Content:' + this.paragraph.nativeElement.textContent);
       
   }
 
